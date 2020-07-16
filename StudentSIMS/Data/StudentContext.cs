@@ -20,6 +20,7 @@ namespace StudentSIMS.Data
         // Use DbSet<Student> to query or read and 
         // write information about A Student
         public DbSet<Student> Student { get; set; }
+        public DbSet<Address> Address { get; set; }
         public static System.Collections.Specialized.NameValueCollection AppSettings { get; }
 
         // configure the database to be used by this context
@@ -34,5 +35,7 @@ namespace StudentSIMS.Data
             // contains the has the connection string as the value
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("schoolSIMSConnection"));
         }
+
+        // configure the database to be used by this context
     }
 }

@@ -106,5 +106,67 @@ namespace StudentSIMS.Controllers
         {
             return _context.Student.Any(e => e.studentId == id);
         }
+
+        private bool AddressExists(int id)
+        {
+            return _context.Address.Any(e => e.addressId == id);
+        }
+
+        [HttpGet("{id}/Addresses")]
+        public async Task<ActionResult<List<Address>>> GetAddressByStudentId(int id)
+        {
+            var addresses = await _context.Address.Where(s => s.studentId == id).ToListAsync();
+
+            if (addresses == null)
+            {
+                return NotFound();
+            }
+
+            return addresses;
+        }
+
+        [HttpPut("{id}/Address/{addressID}")]
+        public async Task<IActionResult> PutStudentAddress(int id, int addressID, Address address)
+        {
+            if (id != address.studentId || addressID != address.addressId)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(address).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!StudentExists(id) || !AddressExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return NoContent();
+        }
+
+        [HttpPost("{id}/Address")]
+        public async Task<IActionResult> PostStudentAddress(int id, Address address)
+        {
+            if (!StudentExists(id))
+            {
+                return NotFound();
+            }
+            address.studentId = id;
+            _context.Entry(address).State = EntityState.Modified;
+
+            _context.Address.Add(address);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("PostStudentAddress", new { id = address.addressId }, address);
+        }
     }
 }

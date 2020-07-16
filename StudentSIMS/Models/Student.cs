@@ -17,6 +17,7 @@ namespace StudentSIMS.Models
         public string middleName { get; set; }
         [Required]
         public string lastName { get; set; }
+        [EmailAddress]
         public string emailAddress { get; set; }
         public int phoneNumber { get; set; }
         [Timestamp]
