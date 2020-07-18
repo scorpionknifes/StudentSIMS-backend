@@ -1,5 +1,7 @@
 # StudentSIMS-backend
 
+[![Build Status](https://dev.azure.com/chengzhenyang/StudentSIMS-backend/_apis/build/status/scorpionknifes.StudentSIMS-backend?branchName=master)](https://dev.azure.com/chengzhenyang/StudentSIMS-backend/_build/latest?definitionId=2&branchName=master)
+
 [Hosted on Azure](http://studentsims.azurewebsites.net/index.html)
 
 This project is an assignment for Microsoft Student Accelerator NZ 2020 Phase 1.
@@ -7,6 +9,7 @@ Back End Development - Database and API.
 
 [Microsoft Student Accelerator](http://aka.ms/nzmsawebsite)
 [2020-Phase-1](https://github.com/NZMSA/2020-Phase-1)
+
 
 #### Project Guidelines
 
@@ -52,3 +55,9 @@ Created PUT method for changing the address of a student PUT `api/Students/{id}/
 I have chosen to places these methods part of `api/Students` as these calls all require `studentID` and are all related to one student.
 
 `api/Students/{id}/Address/{addressID}` requires `addressID` to identify which address to change. This is because each student can have multiple addresses (one-to-many relationship).
+
+## Azure Pipelines
+
+Azure build pipeline creates releases when new commits to ```develop``` and ```master``` branches
+
+Azure release pipeline deploy ```master``` branch to [Azure Web App](http://studentsims.azurewebsites.net/index.html)
