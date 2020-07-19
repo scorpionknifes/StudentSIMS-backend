@@ -125,7 +125,7 @@ namespace StudentSIMS.Controllers
             return addresses;
         }
 
-        [HttpPut("{id}/Address/{addressID}")]
+        [HttpPut("{id}/Addresses/{addressID}")]
         public async Task<IActionResult> PutStudentAddress(int id, int addressID, Address address)
         {
             if (id != address.studentId || addressID != address.addressId)
@@ -153,7 +153,7 @@ namespace StudentSIMS.Controllers
             return NoContent();
         }
 
-        [HttpPost("{id}/Address")]
+        [HttpPost("{id}/Addresses")]
         public async Task<IActionResult> PostStudentAddress(int id, Address address)
         {
             if (!StudentExists(id))
