@@ -80,6 +80,7 @@ namespace StudentSIMS.Controllers
         [HttpPost]
         public async Task<ActionResult<Address>> PostAddress(Address address)
         {
+            address.timeCreated = DateTime.Now;
             _context.Address.Add(address);
             await _context.SaveChangesAsync();
 
