@@ -2,7 +2,7 @@
 
 [![Build Status](https://dev.azure.com/chengzhenyang/StudentSIMS-backend/_apis/build/status/scorpionknifes.StudentSIMS-backend?branchName=master)](https://dev.azure.com/chengzhenyang/StudentSIMS-backend/_build/latest?definitionId=2&branchName=master)
 
-[Hosted on Azure](http://studentsims.azurewebsites.net/index.html)
+[Hosted on Azure](https://studentsims.azurewebsites.net/index.html)
 
 This project is an assignment for Microsoft Student Accelerator NZ 2020 Phase 1.
 Back End Development - Database and API.
