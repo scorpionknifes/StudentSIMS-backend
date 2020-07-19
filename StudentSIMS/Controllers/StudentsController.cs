@@ -80,6 +80,7 @@ namespace StudentSIMS.Controllers
         [HttpPost]
         public async Task<ActionResult<Student>> PostStudent(Student student)
         {
+            student.timeCreated = DateTime.Now;
             _context.Student.Add(student);
             await _context.SaveChangesAsync();
 
@@ -160,6 +161,7 @@ namespace StudentSIMS.Controllers
             {
                 return NotFound();
             }
+            address.timeCreated = DateTime.Now;
             address.studentId = id;
             _context.Entry(address).State = EntityState.Modified;
 
