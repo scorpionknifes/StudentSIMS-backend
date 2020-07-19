@@ -48,13 +48,13 @@ CRUD requests created for `api/Addresses` and `api/Students` - Auto generated.
 
 Created GET method for getting all addresses related to a student GET `api/Students/{id}/Addressses`
 
-Created POST method for adding new address for a student POST `api/Students/{id}/Address`
+Created POST method for adding new address for a student POST `api/Students/{id}/Addresses`
 
-Created PUT method for changing the address of a student PUT `api/Students/{id}/Address/{addressID}`
+Created PUT method for changing the address of a student PUT `api/Students/{id}/Addresses/{addressID}`
 
 I have chosen to places these methods part of `api/Students` as these calls all require `studentID` and are all related to one student.
 
-`api/Students/{id}/Address/{addressID}` requires `addressID` to identify which address to change. This is because each student can have multiple addresses (one-to-many relationship).
+`api/Students/{id}/Addresses/{addressID}` requires `addressID` to identify which address to change. This is because each student can have multiple addresses (one-to-many relationship).
 
 ## Azure Pipelines
 
